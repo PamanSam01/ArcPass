@@ -39,9 +39,9 @@ const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
           >
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-arc-violet to-arc-cyan p-0.5 group-hover:rotate-[15deg] transition-transform duration-500">
               <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center p-1.5">
-                <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-white" strokeWidth="8" strokeLinecap="round">
-                  <path d="M20 85 C 20 10, 80 10, 80 85" />
-                  <path d="M45 85 L 80 85" strokeWidth="12" />
+                <svg viewBox="0 0 100 100" className="w-full h-full fill-white">
+                  <path d="M50 15 C 25 15, 10 50, 10 85 L 30 85 C 30 60, 40 35, 50 35 C 60 35, 70 60, 70 85 L 90 85 C 90 50, 75 15, 50 15 Z" />
+                  <path d="M45 85 L 80 85 L 80 70 L 45 70 Z" className="fill-white/80" />
                 </svg>
               </div>
             </div>
