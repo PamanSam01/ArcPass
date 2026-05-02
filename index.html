@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArcPass — Financial Identity on Arc</title>
+    <script>
+      (function() {
+        var g = window;
+        g.global = g;
+        g.process = { env: { NODE_ENV: 'production' }, browser: true, nextTick: function(cb) { setTimeout(cb, 0); } };
+        
+        var Dummy = function() {};
+        Dummy.isBuffer = function() { return false; };
+        Dummy.from = function() { return []; };
+        Dummy.alloc = function() { return []; };
+        
+        g.Buffer = g.Buffer || Dummy;
+        g.EventEmitter = g.EventEmitter || function() {};
+        g.Stream = g.Stream || function() {};
+        g.BaseError = g.BaseError || function() {};
+
+        // Console Filter to silence third-party noise (Coinbase, WalletConnect, SVG errors)
+        const silentKeywords = ['Unexpected end of attribute', 'Failed to fetch', '403', 'coinbase', 'MetaMask', 'ethereum', 'Pulse', 'preloaded but not used'];
+        const wrap = (original) => function() {
+          const msg = Array.from(arguments).join(' ');
+          if (silentKeywords.some(key => msg.includes(key))) return;
+          original.apply(this, arguments);
+        };
+        console.error = wrap(console.error);
+        console.warn = wrap(console.warn);
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
