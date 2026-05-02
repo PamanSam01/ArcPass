@@ -11,10 +11,7 @@ const Footer: React.FC = () => {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-arc-violet to-arc-cyan flex items-center justify-center p-0.5">
                 <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center p-1.5">
-                  <svg viewBox="0 0 100 100" className="w-full h-full fill-white">
-                    <path d="M50 15 C 25 15, 10 50, 10 85 L 30 85 C 30 60, 40 35, 50 35 C 60 35, 70 60, 70 85 L 90 85 C 90 50, 75 15, 50 15 Z" />
-                    <path d="M45 85 L 80 85 L 80 70 L 45 70 Z" className="fill-white/80" />
-                  </svg>
+                  <img src="/arc.jpg" alt="Arc Logo" className="w-full h-full object-cover rounded-[8px]" />
                 </div>
               </div>
               <span className="font-orbitron font-black text-2xl text-white tracking-tighter">
